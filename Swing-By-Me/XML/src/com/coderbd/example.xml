@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<student>
+<stu id="1">
+           <firstname>Abdul</firstname>
+         <lastname>wadud</lastname>
+        <nickname>azad</nickname>
+        <salary>100000</salary>
+</stu>
+</student>
