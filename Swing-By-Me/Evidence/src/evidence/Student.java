@@ -13,24 +13,23 @@ public class Student {
 
     private String name;
     private String email;
-    private int age;
+    private String age;
     private String gender;
     private String hobby;
     private String round;
-    private String note;
+    private String message;
 
-    public Student(){
-        
-    } 
-    
-    public Student(String name, String email, int age, String gender, String hobby, String round, String note) {
+    public Student() {
+    }
+
+    public Student(String name, String email, String age, String gender, String hobby, String round, String message) {
         this.name = name;
         this.email = email;
         this.age = age;
         this.gender = gender;
         this.hobby = hobby;
         this.round = round;
-        this.note = note;
+        this.message = message;
     }
 
     public String getName() {
@@ -41,7 +40,7 @@ public class Student {
         return email;
     }
 
-    public int getAge() {
+    public String getAge() {
         return age;
     }
 
@@ -57,11 +56,11 @@ public class Student {
         return round;
     }
 
-    public String getNote() {
-        return note;
+    public String getMessage() {
+        return message;
     }
 
-    
+ 
     
     
 }
