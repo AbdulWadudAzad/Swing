@@ -1,0 +1,104 @@
+
+mysql> use inventorycal;
+Database changed
+
+mysql> select * from user;
++----+----------+----------+---------------+-----------+----------+--------------------+-------------+------------+--------+
+| id | username | password | userType      | firstName | lastName | email              | mobile      | regiDate   | status |
++----+----------+----------+---------------+-----------+----------+--------------------+-------------+------------+--------+
+|  1 | azad     | 1234     | billcollector | wadud     | azad     | azadmiu@gmail.com  | 01625030111 | 2018-12-03 |       |
+|  2 | admin    | 1234     | admin         | abdul     | wadud    | wadudmiu@gmail.com | 01625030116 | 2018-12-03 |       |
++----+----------+----------+---------------+-----------+----------+--------------------+-------------+------------+--------+
+2 rows in set (0.00 sec)
+
+
+mysql> select * from doctor;
++----+-------+-------------+
+| id | name  | mobile      |
++----+-------+-------------+
+|  1 | ahmad | 01830654215 |
+|  2 | Taher | 01610654215 |
++----+-------+-------------+
+2 rows in set (0.00 sec)
+
+mysql> describe user;
++-----------+-------------+------+-----+---------+----------------+
+| Field     | Type        | Null | Key | Default | Extra          |
++-----------+-------------+------+-----+---------+----------------+
+| id        | int(11)     | NO   | PRI | NULL    | auto_increment |
+| username  | varchar(30) | NO   |     | NULL    |                |
+| password  | varchar(30) | NO   |     | NULL    |                |
+| userType  | varchar(30) | NO   |     | NULL    |                |
+| firstName | varchar(30) | YES  |     | NULL    |                |
+| lastName  | varchar(30) | YES  |     | NULL    |                |
+| email     | varchar(30) | NO   |     | NULL    |                |
+| mobile    | varchar(30) | NO   |     | NULL    |                |
+| regiDate  | date        | YES  |     | NULL    |                |
+| status    | bit(1)      | YES  |     | NULL    |                |
++-----------+-------------+------+-----+---------+----------------+
+10 rows in set (0.05 sec)
+
+
+mysql> describe doctor;
++--------+-------------+------+-----+---------+----------------+
+| Field  | Type        | Null | Key | Default | Extra          |
++--------+-------------+------+-----+---------+----------------+
+| id     | int(11)     | NO   | PRI | NULL    | auto_increment |
+| name   | varchar(30) | NO   |     | NULL    |                |
+| mobile | varchar(30) | YES  |     | NULL    |                |
++--------+-------------+------+-----+---------+----------------+
+3 rows in set (0.17 sec)
+
+mysql> describe patient;
++---------------+-------------+------+-----+---------+----------------+
+| Field         | Type        | Null | Key | Default | Extra          |
++---------------+-------------+------+-----+---------+----------------+
+| id            | int(11)     | NO   | PRI | NULL    | auto_increment |
+| firstName     | varchar(30) | YES  |     | NULL    |                |
+| lastName      | varchar(30) | YES  |     | NULL    |                |
+| patientCode   | varchar(30) | YES  |     | NULL    |                |
+| email         | varchar(30) | NO   |     | NULL    |                |
+| mobile        | varchar(30) | NO   |     | NULL    |                |
+| totalBill     | double      | NO   |     | NULL    |                |
+| paidBill      | double      | NO   |     | NULL    |                |
+| dueBill       | double      | NO   |     | NULL    |                |
+| admissionDate | date        | NO   |     | NULL    |                |
+| releaseDate   | date        | NO   |     | NULL    |                |
+| user_id       | int(11)     | NO   | MUL | NULL    |                |
+| doctor_id     | int(11)     | NO   | MUL | NULL    |                |
++---------------+-------------+------+-----+---------+----------------+
+13 rows in set (0.11 sec)
+
+mysql> describe summary;
++-------------+-------------+------+-----+---------+----------------+
+| Field       | Type        | Null | Key | Default | Extra          |
++-------------+-------------+------+-----+---------+----------------+
+| id          | int(11)     | NO   | PRI | NULL    | auto_increment |
+| firstName   | varchar(30) | YES  |     | NULL    |                |
+| lastName    | varchar(30) | YES  |     | NULL    |                |
+| patientCode | varchar(30) | NO   |     | NULL    |                |
+| totalBill   | double      | NO   |     | NULL    |                |
+| paidBill    | double      | NO   |     | NULL    |                |
+| dueBill     | double      | NO   |     | NULL    |                |
+| lastUpdate  | date        | NO   |     | NULL    |                |
+| patient_id  | int(11)     | NO   | MUL | NULL    |                |
++-------------+-------------+------+-----+---------+----------------+
+9 rows in set (0.03 sec)
+
+mysql> describe BillCounter;
++----------------+-------------+------+-----+---------+----------------+
+| Field          | Type        | Null | Key | Default | Extra          |
++----------------+-------------+------+-----+---------+----------------+
+| id             | int(11)     | NO   | PRI | NULL    | auto_increment |
+| firstName      | varchar(30) | NO   |     | NULL    |                |
+| lastName       | varchar(30) | NO   |     | NULL    |                |
+| patientCode    | varchar(30) | NO   |     | NULL    |                |
+| todaysBill     | double      | NO   |     | NULL    |                |
+| totalBill      | double      | NO   |     | NULL    |                |
+| collectionbill | double      | NO   |     | NULL    |                |
+| dueBill        | double      | NO   |     | NULL    |                |
+| collectionDate | date        | NO   |     | NULL    |                |
+| patient_id     | int(11)     | NO   | MUL | NULL    |                |
+| user_id        | int(11)     | NO   | MUL | NULL    |                |
++----------------+-------------+------+-----+---------+----------------+
+11 rows in set (0.03 sec)
